@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd43e73c45966194ca8d4ebb56ebf042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchEffect: {fileID: 0}
+  touchEffect: {fileID: 6441873369525384307, guid: 0f3d407feb92ebb49b98d0157de5008a, type: 3}
   moveSpeed: 5
 --- !u!65 &9216420521892620585
 BoxCollider:
