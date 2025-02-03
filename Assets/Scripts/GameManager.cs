@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public AudioSource gameMusic;
     public AudioClip[] audioClips;
 
-    public Text scoreText; 
+    public Text scoreText;
 
     void Start()
     {
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         cubeManager.SetActive(true);
         BlockController.score = 0; 
         UpdateScoreUI();
+        gameMusic.Play();
     }
 
     void HandleDropdownChange(int index)
@@ -40,7 +41,6 @@ public class GameManager : MonoBehaviour
         if (audioClips != null && index >= 0 && index < audioClips.Length)
         {
             gameMusic.clip = audioClips[index];
-            gameMusic.Play();
         }
     }
 

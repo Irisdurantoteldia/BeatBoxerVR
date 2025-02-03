@@ -10,21 +10,6 @@ public class BlockController : MonoBehaviour
     private Vector3 moveDirection = Vector3.back;
     public float moveSpeed;
 
-    private void Start()
-    {
-        StartCoroutine(FailureCheck()); // Comprova si el cub no ha estat tocat dins del temps límit
-    }
-
-    private IEnumerator FailureCheck()
-    {
-        yield return new WaitForSeconds(1.8f);
-
-        if (gameObject.activeSelf && !hasBeenTouched)
-        {
-            Destroy(gameObject); // Destrueix el cub si no ha estat tocat
-        }
-    }
-
     private void Update()
     {
         transform.position += moveDirection * moveSpeed * Time.deltaTime;
@@ -42,18 +27,14 @@ public class BlockController : MonoBehaviour
 
     public void MarkAsTouched()
     {
-        if (!hasBeenTouched)
+        score += 10;
+
+        if (touchEffect != null)
         {
-            hasBeenTouched = true;
-            score += 10; 
-
-            if (touchEffect != null)
-            {
-                Instantiate(touchEffect, transform.position, Quaternion.identity);
-            }
-
-            Destroy(gameObject);
+            Instantiate(touchEffect, transform.position, Quaternion.identity);
         }
+
+        Destroy(gameObject);
     }
 
     // NOVA FUNCIÓ: Detecta quan la mà toca el cub

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayMusicWithDelay : MonoBehaviour
 {
-
     public float delay = 1;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         Invoke("PlayMusic", delay);
     }
